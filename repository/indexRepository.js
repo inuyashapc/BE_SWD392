@@ -1,3 +1,5 @@
 import subRepository from "./subrepository.js";
 import userRepository from "./userRepository.js";
-export { userRepository, subRepository };
+import classRepository from "./classRepository.js";
+import subjectRepository from "./subjectRepository.js";
+export { userRepository, subRepository, classRepository, subjectRepository };

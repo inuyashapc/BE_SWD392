@@ -1,6 +1,7 @@
 // models/user.js
 import { DataTypes, Model } from "sequelize";
 import sequelize from "../config/configDatabase.js";
+import UserRoles from "./UserRolesModel.js";
 
 class User extends Model {}
 
@@ -31,7 +32,7 @@ User.init(
     role_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "user_roles",
+        model: UserRoles,
         key: "role_id",
       },
     },

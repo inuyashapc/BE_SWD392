@@ -1,8 +1,8 @@
-import  express from'express';
+import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import ConnectDB from './util/DBContext.js'
-import { subRouter,userRouter } from './router/indexRouter.js';
+import ConnectDB from "./util/DBContext.js";
+import { subRouter, userRouter,classRouter ,subjectRouter } from "./router/indexRouter.js";
 const app = express();
 dotenv.config();
 // const corsOptions = {
@@ -10,12 +10,14 @@ dotenv.config();
 //   credentials: true,
 // };
 app.use(cors());
-app.use(express.json())
+app.use(express.json());
 
 // ae code new route o day
-app.use('/users',userRouter)
+app.use("/users", userRouter);
+app.use("/classes", classRouter);
+app.use("/subjects", subjectRouter);
 ////////////////////////////////
-app.use('/',subRouter);
+app.use("/", subRouter);
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   ConnectDB();
