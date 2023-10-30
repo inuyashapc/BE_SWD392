@@ -2,21 +2,30 @@ import { userRepository } from "../repository/indexRepository.js";
 
 const userRegister = async (req, res) => {
   try {
-    const { UserID, Full_name, Password, Email, Phone_number, Avatar } =
+    const { user_id, full_name, password, email, phone_number, avatar } =
       req.body;
     const newUserRoleData = {
-      UserID,
-      Full_name,
-      Password,
-      Email,
-      Phone_number,
-      Avatar,
-      RoleID:1
+      user_id,
+      full_name,
+      password,
+      email,
+      phone_number,
+      avatar,
+      role_id:1
     };
-    const newSemester = await userRepository.createNewUser(newUserRoleData);
-    res.json(newSemester);
+    const newData = await userRepository.createNewUser(newUserRoleData);
+    res.json(newData);
   } catch (error) {
     res.json("not found");
   }
 };
-export default { userRegister };
+
+const getAllUser = async (req,res) =>{
+  try {
+    const getAllUser = await userRepository.getAllUser();
+    res.json(getAllUser);
+  } catch (error) {
+    res.json("not found");
+  }
+}
+export default { userRegister ,getAllUser };

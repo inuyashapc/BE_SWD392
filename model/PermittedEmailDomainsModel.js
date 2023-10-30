@@ -6,12 +6,12 @@ class PermittedEmailDomains extends Model {}
 
 PermittedEmailDomains.init(
   {
-    DomainID: {
+    domain_id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
     },
-    DomainName: {
+    domain_name: {
       type: DataTypes.STRING(50),
       allowNull: false,
     },
@@ -19,6 +19,7 @@ PermittedEmailDomains.init(
   {
     sequelize,
     modelName: 'PermittedEmailDomains',
+    tableName:'permitted_email_domain',
     timestamps: true, 
     createdAt: "created_at", 
     updatedAt: "updated_at", 

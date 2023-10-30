@@ -6,39 +6,40 @@ class User extends Model {}
 
 User.init(
   {
-    UserID: {
+    user_id: {
       type: DataTypes.STRING(8),
       primaryKey: true,
     },
-    Full_name: {
+    full_name: {
       type: DataTypes.STRING(50),
       allowNull: false,
     },
-    Password: {
+    password: {
       type: DataTypes.STRING(16),
       allowNull: false,
     },
-    Email: {
+    email: {
       type: DataTypes.STRING(50),
       allowNull: false,
     },
-    Phone_number: {
+    phone_number: {
       type: DataTypes.STRING(10),
     },
-    Avatar: {
+    avatar: {
       type: DataTypes.STRING(255),
     },
-    RoleID: {
+    role_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "UserRoles",
-        key: "RoleID",
+        model: "user_roles",
+        key: "role_id",
       },
     },
   },
   {
     sequelize,
     modelName: "user",
+    tableName:'user',
     timestamps: true, 
     createdAt: "created_at", 
     updatedAt: "updated_at", 

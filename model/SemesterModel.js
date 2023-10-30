@@ -6,24 +6,25 @@ class Semesters extends Model {}
 
 Semesters.init(
   {
-    SemesterID: {
+    semester_id: {
       type: DataTypes.STRING(8),
       primaryKey: true,
     },
-    SemesterName: {
+    semester_name: {
       type: DataTypes.STRING(50),
       allowNull: false,
     },
-    StartDate: {
+    start_date: {
       type: DataTypes.DATE,
     },
-    EndDate: {
+    end_date: {
       type: DataTypes.DATE,
     },
   },
   {
     sequelize,
-    modelName: 'Semesters',
+    modelName: 'semester',
+    tableName:'semester',
     timestamps: true, 
     createdAt: "created_at", 
     updatedAt: "updated_at", 

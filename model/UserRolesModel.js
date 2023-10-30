@@ -6,24 +6,25 @@ class UserRoles extends Model {}
 
 UserRoles.init(
   {
-    RoleID: {
+    role_id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
   
     },
-    RoleName: {
+    role_name: {
       type: DataTypes.STRING(20),
       allowNull: false,
     },
-    RoleDescription: {
+    role_description: {
       type: DataTypes.STRING(200), 
       allowNull: false, 
     },
   },
   {
     sequelize,
-    modelName: 'user_roles',
+    modelName: 'userRole',
+    tableName: 'user_role',
     timestamps: true, 
     createdAt: "created_at", 
     updatedAt: "updated_at", 

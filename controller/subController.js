@@ -2,12 +2,12 @@ import { subRepository } from "../repository/indexRepository.js";
 
 const createNewSemester = async (req, res) => {
   try {
-    const { SemesterID, SemesterName, StartDate, EndDate } = req.body;
+    const { semester_id, semester_name, start_date, end_date } = req.body;
     const newSemesterData = {
-      SemesterID,
-      SemesterName,
-      StartDate,
-      EndDate,
+      semester_id,
+      semester_name,
+      start_date,
+      end_date,
     };
     const newSemester = await subRepository.createNewSemester(newSemesterData);
     res.json(newSemester);
@@ -17,10 +17,10 @@ const createNewSemester = async (req, res) => {
 };
 const createNewUserRole = async (req, res) => {
   try {
-    const { RoleName, RoleDescription } = req.body;
+    const { role_name, role_description } = req.body;
     const newUserRoleData = {
-      RoleName,
-      RoleDescription,
+      role_name,
+      role_description,
     };
     const newSemester = await subRepository.createNewUserRole(newUserRoleData);
     res.json(newSemester);
