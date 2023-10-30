@@ -1,50 +1,49 @@
-import mongoose, { Schema, ObjectId } from "mongoose";
-import validator from "validator";
-import ConfigConstants from "../constant/ConfigConstants.js";
-const UserSchema = mongoose.Schema(
+// models/user.js
+import { DataTypes, Model } from "sequelize";
+import sequelize from "../config/configDatabase.js";
+
+class User extends Model {}
+
+User.init(
   {
-    id: { type: ObjectId },
-    userName: {
-      type: String,
-      required: true,
+    user_id: {
+      type: DataTypes.STRING(8),
+      primaryKey: true,
     },
-    userEmail: {
-      type: String,
-      required: true,
-      unique: true,
+    full_name: {
+      type: DataTypes.STRING(50),
+      allowNull: false,
     },
-    userPassword: {
-      type: String,
+    password: {
+      type: DataTypes.STRING(16),
+      allowNull: false,
     },
-    userAddress: {
-      type: String,
+    email: {
+      type: DataTypes.STRING(50),
+      allowNull: false,
     },
-    userPhoneNumber: {
-      type: String,
+    phone_number: {
+      type: DataTypes.STRING(10),
     },
-    userAvatarUrl: {
-      type: String,
-      required: true,
-      default: "https://res.cloudinary.com/dotknkcep/image/upload/v1698478626/Constants/OIP_15_veecvf.jpg",
-      validate: {
-        validator: validator.isURL,
-        message: "Invalid URL for product image",
+    avatar: {
+      type: DataTypes.STRING(255),
+    },
+    role_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "user_roles",
+        key: "role_id",
       },
-    },
-    isActived: {
-      type: Boolean,
-      default: true,
-      required: true,
-    },
-    roleId: {
-      type: Number,
-      required: true,
-      default:ConfigConstants.USER_ROLE_ID
     },
   },
   {
-    timestamp: true,
+    sequelize,
+    modelName: "user",
+    tableName:'user',
+    timestamps: true, 
+    createdAt: "created_at", 
+    updatedAt: "updated_at", 
   }
 );
-const User = mongoose.model("User", UserSchema);
+
 export default User;

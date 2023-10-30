@@ -1,36 +1,23 @@
 import  express from'express';
-import mysql from 'mysql'
-
+import dotenv from "dotenv";
+import cors from "cors";
+import ConnectDB from './util/DBContext.js'
+import { subRouter,userRouter } from './router/indexRouter.js';
 const app = express();
+dotenv.config();
+// const corsOptions = {
+//   origin: process.env.FRONT_END_ORIGIN_URL,
+//   credentials: true,
+// };
+app.use(cors());
+app.use(express.json())
 
-const db = mysql.createConnection({
-  host: '127.0.0.1',
-  user: 'root',
-  password: '123456',
-  database: 'swd_fall_2023'
-});
-
-db.connect((err) => {
-  if (err) {
-    console.error('Database connection error:', err);
-  } else {
-    console.log('Connected to MySQL database');
-  }
-});
-
-app.get('/data', (req, res) => {
-  const sql = 'SELECT * FROM your_table_name';
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error('Database query error:', err);
-      res.status(500).json({ error: 'Database error' });
-    } else {
-      res.json(results);
-    }
-  });
-});
-
+// ae code new route o day
+app.use('/users',userRouter)
+////////////////////////////////
+app.use('/',subRouter);
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
+  ConnectDB();
   console.log(`Server is running on port ${port}`);
 });

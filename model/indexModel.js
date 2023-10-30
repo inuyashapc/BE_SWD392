@@ -1,2 +1,5 @@
 import User from "./UserModel.js";
-export { User };
+import Semesters from "./SemesterModel.js";
+import PermittedEmailDomains from "./PermittedEmailDomainsModel.js";
+import UserRoles from "./UserRolesModel.js";
+export { User, Semesters, PermittedEmailDomains, UserRoles };
