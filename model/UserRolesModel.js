@@ -23,7 +23,7 @@ UserRoles.init(
   },
   {
     sequelize,
-    modelName: 'userRole',
+    modelName: 'user_role',
     tableName: 'user_role',
     timestamps: true, 
     createdAt: "created_at", 

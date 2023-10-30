@@ -3,15 +3,6 @@ import { User } from "../model/indexModel.js";
 
 const createNewUser = async(userData) => {
   try {
-    console.log(
-      userData.user_id + ',' +
-      userData.full_name + ',' +
-      userData.password + ',' +
-      userData.email + ',' +
-      userData.phone_number + ',' +
-      userData.avatar + ',' +
-      userData.role_id
-    );
     const newUser = await User.create(userData);
     return newUser;
   } catch (error) {

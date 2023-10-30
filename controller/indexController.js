@@ -1,4 +1,5 @@
-import authController from "./authController.js";
 import subController from "./subController.js";
 import userController from "./userController.js";
-export { authController, subController,userController };
+import classController from "./classController.js";
+import subjectController from "./subjectController.js";
+export { subController, userController, classController ,subjectController };

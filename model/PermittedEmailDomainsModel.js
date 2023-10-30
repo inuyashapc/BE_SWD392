@@ -18,7 +18,7 @@ PermittedEmailDomains.init(
   },
   {
     sequelize,
-    modelName: 'PermittedEmailDomains',
+    modelName: 'permitted_email_domain',
     tableName:'permitted_email_domain',
     timestamps: true, 
     createdAt: "created_at", 
