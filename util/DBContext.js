@@ -1,20 +1,22 @@
-import mongoose from "mongoose";
-import Exception from "../constant/Exception.js";
+import mysql from 'mysql'
 
-const ConnectDB = async () => {
-  try {
-    let connection = await mongoose.connect(process.env.MONGO_URI);
-    console.log("CONNECT TO DATABASE SUCCESSFUL");
-    return connection;
-  } catch (error) {
-    const { code } = error;
-    if (error.code == 8000) {
-      throw new Exception(Exception.WRONG_DB_USERNAME_PASSWORD);
-    } else if (code == "ENOTFOUND") {
-      throw new Exception(Exception.WRONG_CONNECTION_STRING);
+
+const db = mysql.createConnection({
+  host: '127.0.0.1',
+  user: 'root',
+  password: '123456',
+  database: 'swd_fall_2023'
+});
+
+const ConnectDB = () =>{
+  db.connect((err) => {
+    if (err) {
+      console.error('Database connection error:', err);
+    } else {
+      console.log('Connected to MySQL database');
     }
-    throw new Exception(Exception.CANNOT_CONNECT_MONGODB);
-  }
-};
+  });
+} 
+
 
 export default ConnectDB;
