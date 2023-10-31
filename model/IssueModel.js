@@ -9,7 +9,7 @@ class Issue extends Model {}
 Issue.init(
   {
     project_id: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.INTEGER,
       primaryKey: true,
       references: {
         model: Project,
@@ -17,18 +17,18 @@ Issue.init(
       },
     },
     issue_id: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.INTEGER,
       primaryKey: true,
     },
     assigner_id: {
-      type: DataTypes.STRING(8),
+      type: DataTypes.INTEGER,
       references: {
         model: User,
         key: "user_id",
       },
     },
     assignee_id: {
-      type: DataTypes.STRING(8),
+      type: DataTypes.INTEGER,
       references: {
         model: User,
         key: "user_id",

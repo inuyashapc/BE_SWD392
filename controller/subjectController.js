@@ -16,5 +16,22 @@ const createNewSubject = async (req, res) => {
     res.json("not found");
   }
 };
+const getAllSubject = async (req, res) => {
+  try {
+    const newSubject = await subjectRepository.getAllSubject();
+    res.json(newSubject);
+  } catch (error) {
+    res.json("not found");
+  }
+};
 
-export default { createNewSubject };
+const getSubjectbyId = async (req, res) => {
+  try {
+    const { subject_id } = req.params;
+    const getSubjectbyId = await subjectRepository.getSubjectbyId(subject_id);
+    res.json(getSubjectbyId);
+  } catch (error) {
+    res.json("not found");
+  }
+};
+export default { createNewSubject, getAllSubject, getSubjectbyId };

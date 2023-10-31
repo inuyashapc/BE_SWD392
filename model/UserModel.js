@@ -8,7 +8,8 @@ class User extends Model {}
 User.init(
   {
     user_id: {
-      type: DataTypes.STRING(8),
+      type: DataTypes.INTEGER,
+      autoIncrement:true,
       primaryKey: true,
     },
     full_name: {

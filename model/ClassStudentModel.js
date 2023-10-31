@@ -7,14 +7,14 @@ class ClassStudent extends Model {}
 ClassStudent.init(
   {
     class_id: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.INTEGER,
       primaryKey: true,
     },
     class_status: {
       type: DataTypes.BOOLEAN,
     },
     student_id: {
-      type: DataTypes.STRING(8),
+      type: DataTypes.INTEGER,
       primaryKey: true,
       references: {
         model: User,

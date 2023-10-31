@@ -14,14 +14,14 @@ IssueSetting.init(
       autoIncrement: true,
     },
     project_id: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.INTEGER,
       references: {
         model: Project,
         key: "project_id",
       },
     },
     class_id: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.INTEGER,
       references: {
         model: Class,
         key: "class_id",

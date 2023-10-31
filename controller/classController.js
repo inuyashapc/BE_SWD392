@@ -2,9 +2,9 @@ import { classRepository } from "../repository/indexRepository.js";
 
 const createNewClass = async (req, res) => {
   try {
-    const { class_id, subject_id, teacher_id, semester_id } = req.body;
+    const { class_name, subject_id, teacher_id, semester_id } = req.body;
     const newClassData = {
-      class_id,
+      class_name,
       subject_id,
       teacher_id,
       semester_id,

@@ -17,7 +17,7 @@ Subject.init(
       type: DataTypes.STRING(500),
     },
     manager_id: {
-      type: DataTypes.STRING(8),
+      type: DataTypes.INTEGER,
       references: {
         model: User,
         key: "user_id",
