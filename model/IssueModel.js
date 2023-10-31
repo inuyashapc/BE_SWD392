@@ -2,6 +2,7 @@ import { DataTypes, Model } from "sequelize";
 import sequelize from "../config/configDatabase.js";
 import Project from "./ProjectModel.js";
 import User from "./UserModel.js";
+import IssueSetting from "./IssueSettingModel.js";
 
 class Issue extends Model {}
 
@@ -36,9 +37,6 @@ Issue.init(
     issue_title: {
       type: DataTypes.STRING(50),
     },
-    issue_label: {
-      type: DataTypes.STRING(10),
-    },
     issue_description: {
       type: DataTypes.STRING(200),
     },
@@ -53,6 +51,13 @@ Issue.init(
     },
     updated_at: {
       type: DataTypes.DATE,
+    },
+    setting_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: IssueSetting,
+        key: "setting_id",
+      },
     },
   },
   {
