@@ -4,4 +4,5 @@ import PermittedEmailDomain from "./PermittedEmailDomainsModel.js";
 import UserRole from "./UserRolesModel.js";
 import Class from "./ClassModel.js";
 import Subject from "./SubjectModel.js";
-export { User, Semester, PermittedEmailDomain, UserRole, Class, Subject };
+import Assignment from "./AssignmentModel.js";
+export { User, Semester, PermittedEmailDomain, UserRole, Class, Subject ,Assignment };
