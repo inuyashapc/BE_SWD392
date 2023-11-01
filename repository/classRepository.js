@@ -31,7 +31,6 @@ const getAllClass = async () => {
         },
       ],
     });
-    console.log("🚀 ========= result:", result);
     return result;
   } catch (error) {
     throw new Error(error.message);
@@ -60,7 +59,6 @@ const getClassDetail = async (id) => {
         },
       ],
     });
-    console.log("🚀 ========= result:", result);
     return result;
   } catch (error) {
     throw new Error(error.message);

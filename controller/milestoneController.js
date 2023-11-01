@@ -23,19 +23,27 @@ const createMilestone = async (req, res) => {
   const {
     project_id,
     class_id,
-    team_leader_id,
-    project_name,
-    Project_description,
+    milestone_name,
+    milestone_type,
+    milestone_status,
+    milestone_description,
+    start_date,
+    end_date,
   } = req.body;
   try {
     const result = await milestoneRepository.createMilestone({
       project_id,
       class_id,
-      team_leader_id,
-      project_name,
-      Project_description,
+      milestone_name,
+      milestone_type,
+      milestone_status,
+      milestone_description,
+      start_date,
+      end_date,
     });
     res.json(result);
-  } catch (error) {}
+  } catch (error) {
+    console.log("🚀 ========= error:", error);
+  }
 };
 export default { getAllMilestone, getDetailMilestone, createMilestone };

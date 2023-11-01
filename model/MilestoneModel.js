@@ -39,6 +39,12 @@ Milestone.init(
     milestone_description: {
       type: DataTypes.STRING(200),
     },
+    start_date: {
+      type: DataTypes.DATE,
+    },
+    end_date: {
+      type: DataTypes.DATE,
+    },
     created_at: {
       type: DataTypes.DATE,
     },
