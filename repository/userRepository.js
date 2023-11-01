@@ -36,7 +36,7 @@ const getAllTeacher = async () => {
 const login = async({ email, password }) => {
   const userExisting = await User.findOne({ where: { email: email } });
   if (userExisting) {
-    const isMatch = await bcrypt.compare(password, userExisting.password);
+    const isMatch = await bcrypt.compare(password, userExisting.dataValues.password);
     if (isMatch == true) {
       // Tạo Access Token bằng JWT
       const accessToken = jwt.sign(
@@ -49,7 +49,7 @@ const login = async({ email, password }) => {
         }
       );
       return {
-        ...userExisting.toObject(),
+        ...userExisting.dataValues,
         password: "Not show",
         token: accessToken,
       };
@@ -60,10 +60,8 @@ const login = async({ email, password }) => {
     throw new Error("User not exist.");
   }
 }
-const register=async({ full_name, phone_number, email, password })=> {
-  console.log(123123)
+const register = async({ full_name, phone_number, email, password })=> {
   const userExisting = await User.findOne({ where: { email: email } }); 
-  console.log(userExisting)
   if (userExisting != null) {
     throw new Error("User existing.");
   }
@@ -72,22 +70,13 @@ const register=async({ full_name, phone_number, email, password })=> {
   const hashPassword = await bcrypt.hash(password, parseInt(process.env.SECRET_KEY));
   const avatar = DefaultImage.defaultAvatar;
   const role_id = process.env.ROLE_USER;
-  console.log({ //
+  const newUser = await User.create({
     full_name,
     phone_number,
     email,
     password: hashPassword,
     avatar: avatar,
-    role_id: role_id,
-  })
-  const newUser = await User.create({
-    user_id:"he154131", //
-    full_name,
-    phone_number,
-    email,
-    password: "32131231",
-    avatar: avatar,
-    role_id: 1,
+    role_id: 4,
   }).then((ok)=>console.log(ok)).catch((err)=>console.log(err));
 
   // Clone a new user
