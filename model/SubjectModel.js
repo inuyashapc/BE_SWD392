@@ -53,5 +53,6 @@ Subject.init(
     updatedAt: "updated_at",
   }
 );
+Subject.belongsTo(User, { foreignKey: 'manager_id', as: 'Manager' });
 
 export default Subject;
