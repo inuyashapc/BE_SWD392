@@ -1,7 +1,7 @@
 import { userRepository } from "../repository/indexRepository.js";
 import { body, validationResult } from "express-validator";
-import sendEmail from '../util/email.js';
-import jwt from 'jsonwebtoken'
+import sendEmail from "../util/email.js";
+import jwt from "jsonwebtoken";
 
 const getAllUser = async (req, res) => {
   try {
@@ -21,7 +21,7 @@ const getAllTeacher = async (req, res) => {
   }
 };
 
-const register = async(req, res)=> {
+const register = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
@@ -29,17 +29,19 @@ const register = async(req, res)=> {
   // Destructuring object
   const { full_name, phone_number, email, password } = req.body;
   try {
-
     const sendEmailCheck = await sendEmail(email);
 
-    const newUser = await userRepository.register({full_name, phone_number, email, password });
-
+    const newUser = await userRepository.register({
+      full_name,
+      phone_number,
+      email,
+      password,
+    });
 
     res.status(201).json({
       message: "Register successfully.",
       data: {
         user: newUser,
-
       },
     });
   } catch (error) {
@@ -47,8 +49,8 @@ const register = async(req, res)=> {
       errors: error.toString(),
     });
   }
-}
-const login = async(req, res) => {
+};
+const login = async (req, res) => {
   // Validation done
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -65,8 +67,6 @@ const login = async(req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.toString() });
   }
-}
-
-    
+};
 
 export default { register, getAllUser, getAllTeacher, login };

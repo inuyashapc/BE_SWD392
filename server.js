@@ -9,7 +9,9 @@ import {
   classRouter,
   subjectRouter,
   assignmentRouter,
-  milestoneRouter,issueRouter
+  milestoneRouter,
+  semesterRouter,
+  issueRouter,
 } from "./router/indexRouter.js";
 const app = express();
 dotenv.config();
@@ -26,6 +28,7 @@ app.use("/subjects", subjectRouter);
 app.use("/assignments", assignmentRouter);
 app.use("/issues", issueRouter);
 app.use("/milestones", milestoneRouter);
+app.use("/semesters", semesterRouter);
 
 ////////////////////////////////
 app.use("/", subRouter);

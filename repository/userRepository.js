@@ -3,6 +3,15 @@ import { User } from "../model/indexModel.js";
 import bcrypt from "bcrypt"; 
 import jwt from 'jsonwebtoken';
 
+const createNewUser = async (userData) => {
+  try {
+    const newUser = await User.create(userData);
+    return newUser;
+  } catch (error) {
+    throw new Error("Không thể tạo: " + error.message);
+  }
+};
+
 const getAllUser = async () => {
   try {
     const allUsers = await User.findAll();
@@ -21,7 +30,7 @@ const getAllTeacher = async () => {
     });
     return allUsers;
   } catch (error) {
-    throw new Error("Không thể tạo: " + error.message);
+    throw new Error("Không có teacher" + error.message);
   }
 };
 const login = async({ email, password }) => {

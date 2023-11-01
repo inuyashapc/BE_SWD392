@@ -3,6 +3,7 @@ import { DataTypes, Model } from "sequelize";
 import sequelize from "../config/configDatabase.js";
 import User from "./UserModel.js";
 import Subject from "./SubjectModel.js";
+import { Semester } from "./indexModel.js";
 class Class extends Model {}
 
 Class.init(
@@ -52,4 +53,5 @@ Class.init(
 );
 Class.belongsTo(Subject, { foreignKey: "subject_id", as: "Subject" });
 Class.belongsTo(User, { foreignKey: "teacher_id", as: "Teacher" });
+Class.belongsTo(Semester, { foreignKey: "semester_id", as: "Semester" });
 export default Class;
