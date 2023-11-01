@@ -18,7 +18,7 @@ Class.init(
       type: DataTypes.BOOLEAN,
     },
     subject_id: {
-      type: DataTypes.STRING(8),
+      type: DataTypes.INTEGER,
       references: {
         model: Subject,
         key: "subject_id",

@@ -2,10 +2,10 @@ import { subjectRepository } from "../repository/indexRepository.js";
 
 const createNewSubject = async (req, res) => {
   try {
-    const { subject_id, subject_name, subject_description, manager_id } =
+    const { subject_code, subject_name, subject_description, manager_id } =
       req.body;
     const newSubjectData = {
-      subject_id,
+      subject_code,
       subject_name,
       subject_description,
       manager_id,
