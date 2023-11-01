@@ -47,17 +47,23 @@ const getDetailMilestone = async (id) => {
 const createMilestone = async ({
   project_id,
   class_id,
-  team_leader_id,
-  project_name,
-  Project_description,
+  milestone_name,
+  milestone_type,
+  milestone_status,
+  milestone_description,
+  start_date,
+  end_date,
 }) => {
   try {
     const result = await Milestone.create({
       project_id,
       class_id,
-      team_leader_id,
-      project_name,
-      Project_description,
+      milestone_name,
+      milestone_type,
+      milestone_status,
+      milestone_description,
+      start_date,
+      end_date,
     });
     return result;
   } catch (error) {
