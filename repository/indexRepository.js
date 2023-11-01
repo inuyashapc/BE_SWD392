@@ -5,4 +5,14 @@ import subjectRepository from "./subjectRepository.js";
 import assignmentRepository from "./assignmentRepository.js";
 import issueRepository from "./issueRepository.js" 
 
-export { userRepository, subRepository, classRepository, subjectRepository , assignmentRepository, issueRepository };
+import milestoneRepository from "./milestoneRepository.js";
+
+export {
+  userRepository,
+  subRepository,
+  classRepository,
+  subjectRepository,
+  assignmentRepository,
+  milestoneRepository,issueRepository
+};
+

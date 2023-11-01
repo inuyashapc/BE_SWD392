@@ -16,4 +16,12 @@ const createNewClass = async (req, res) => {
   }
 };
 
-export default { createNewClass };
+const getAllClass = async (req, res) => {
+  try {
+    const result = await classRepository.getAllClass();
+    res.json(result);
+  } catch (error) {
+    res.json("not found");
+  }
+};
+export default { createNewClass, getAllClass };
