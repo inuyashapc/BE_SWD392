@@ -14,7 +14,7 @@ const getAllUser = async (req, res) => {
 
 const getAllTeacher = async (req, res) => {
   try {
-    const getAllTeachers = await userRepository.getAllTeacher;
+    const getAllTeachers = await userRepository.getAllTeacher();
     res.json(getAllTeachers);
   } catch (error) {
     res.json("not found");

@@ -14,7 +14,11 @@ const getAllUser = async () => {
 
 const getAllTeacher = async () => {
   try {
-    const allUsers = await User.findAll();
+    const allUsers = await User.findAll({
+      where: {
+        role_id: 3,
+      },
+    });
     return allUsers;
   } catch (error) {
     throw new Error("Không thể tạo: " + error.message);
