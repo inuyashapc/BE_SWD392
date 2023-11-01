@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js",
-    "server":"node server.js"
+    "server": "node server.js"
   },
   "type": "module",
   "author": "DuyAnh",
@@ -31,7 +31,7 @@
     "mongoose": "^7.5.0",
     "mysql": "^2.18.1",
     "mysql2": "^3.6.2",
-    "nodemailer": "^6.9.5",
+    "nodemailer": "^6.9.7",
     "npm": "^10.2.1",
     "qs": "^6.11.2",
     "sequelize": "^6.33.0",
