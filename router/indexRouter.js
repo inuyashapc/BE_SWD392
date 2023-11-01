@@ -3,6 +3,7 @@ import userRouter from "./userRouter.js";
 import classRouter from "./classRouter.js";
 import subjectRouter from "./subjectRouter.js";
 import assignmentRouter from "./assignmentRouter.js";
+import issueRouter from './issueRouter.js'
 import milestoneRouter from "./milestoneRouter.js";
 
 export {
@@ -11,5 +12,5 @@ export {
   classRouter,
   subjectRouter,
   assignmentRouter,
-  milestoneRouter,
+  milestoneRouter,issueRouter
 };

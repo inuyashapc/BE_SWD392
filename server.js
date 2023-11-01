@@ -2,13 +2,14 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import ConnectDB from "./util/DBContext.js";
+
 import {
   subRouter,
   userRouter,
   classRouter,
   subjectRouter,
   assignmentRouter,
-  milestoneRouter,
+  milestoneRouter,issueRouter
 } from "./router/indexRouter.js";
 const app = express();
 dotenv.config();
@@ -23,6 +24,7 @@ app.use("/users", userRouter);
 app.use("/classes", classRouter);
 app.use("/subjects", subjectRouter);
 app.use("/assignments", assignmentRouter);
+app.use("/issues", issueRouter);
 app.use("/milestones", milestoneRouter);
 
 ////////////////////////////////
