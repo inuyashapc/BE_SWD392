@@ -4,6 +4,7 @@ import { milestoneController } from "../controller/indexController.js";
 const router = express.Router();
 
 router.get("/", milestoneController.getAllMilestone);
-router.get("/", milestoneController.getAllMilestone);
+router.get("/:id", milestoneController.getDetailMilestone);
+router.post("/create", milestoneController.createMilestone);
 
 export default router;

@@ -55,5 +55,6 @@ Milestone.init(
     updatedAt: "updated_at",
   }
 );
-
+Milestone.belongsTo(Project, { foreignKey: "project_id", as: "Project" });
+Milestone.belongsTo(Class, { foreignKey: "class_id", as: "Class" });
 export default Milestone;

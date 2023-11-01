@@ -1,9 +1,18 @@
-import {issueRepository} from '../repository/indexRepository.js';
+import { issueRepository } from "../repository/indexRepository.js";
 
 const createNewIssue = async (req, res) => {
   try {
-    const { project_id, issue_id, assigner_id, assignee_id, issue_title, issue_description, start_date, end_date, setting_id } =
-      req.body;
+    const {
+      project_id,
+      issue_id,
+      assigner_id,
+      assignee_id,
+      issue_title,
+      issue_description,
+      start_date,
+      end_date,
+      setting_id,
+    } = req.body;
     const newIssueData = {
       project_id,
       issue_id,
@@ -13,7 +22,7 @@ const createNewIssue = async (req, res) => {
       issue_description,
       start_date,
       end_date,
-      setting_id
+      setting_id,
     };
     const newIssue = await issueRepository.createNewIssue(newIssueData);
     res.json(newIssue);
@@ -50,18 +59,23 @@ const batchUpdate = async (req, res) => {
   try {
     const updates = req.body;
 
-    const updatedIssues = await Promise.all(updates.map(async (update) => {
-      const { issueId, updatedData } = update;
-      const issue = await issueRepository.getIssueById(issueId);
+    const updatedIssues = await Promise.all(
+      updates.map(async (update) => {
+        const { issueId, updatedData } = update;
+        const issue = await issueRepository.getIssueById(issueId);
 
-      if (!issue) {
-        throw new Error(`Issue with ID ${issueId} not found`);
-      }
+        if (!issue) {
+          throw new Error(`Issue with ID ${issueId} not found`);
+        }
 
-      const updatedIssue = await issueRepository.updateIssue(issueId, updatedData);
+        const updatedIssue = await issueRepository.updateIssue(
+          issueId,
+          updatedData
+        );
 
-      return updatedIssue;
-    }));
+        return updatedIssue;
+      })
+    );
 
     res.json(updatedIssues);
   } catch (error) {
@@ -69,4 +83,4 @@ const batchUpdate = async (req, res) => {
   }
 };
 
-export default { createNewIssue, getAllIssue, getIssueById, batchUpdate};
+export default { createNewIssue, getAllIssue, getIssueById, batchUpdate };
