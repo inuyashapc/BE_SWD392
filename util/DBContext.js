@@ -8,7 +8,7 @@ const ConnectDB = async () => {
     password: password,
     database: "swd_fall_2023",
   });
-  
+
   await db.connect((err) => {
     if (err) {
       console.error("Database connection error:", err);
