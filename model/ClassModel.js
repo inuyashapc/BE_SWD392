@@ -8,21 +8,24 @@ class Class extends Model {}
 Class.init(
   {
     class_id: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.INTEGER,
       primaryKey: true,
+    },
+    class_name: {
+      type: DataTypes.STRING(45),
     },
     class_status: {
       type: DataTypes.BOOLEAN,
     },
     subject_id: {
-      type: DataTypes.STRING(8),
+      type: DataTypes.INTEGER,
       references: {
         model: Subject,
         key: "subject_id",
       },
     },
     teacher_id: {
-      type: DataTypes.STRING(8),
+      type: DataTypes.INTEGER,
       references: {
         model: User,
         key: "user_id",

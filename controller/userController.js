@@ -2,10 +2,9 @@ import { userRepository } from "../repository/indexRepository.js";
 
 const userRegister = async (req, res) => {
   try {
-    const { user_id, full_name, password, email, phone_number, avatar } =
+    const { full_name, password, email, phone_number, avatar } =
       req.body;
     const newUserRoleData = {
-      user_id,
       full_name,
       password,
       email,
@@ -13,6 +12,7 @@ const userRegister = async (req, res) => {
       avatar,
       role_id:1
     };
+    console.log(newUserRoleData)
     const newData = await userRepository.createNewUser(newUserRoleData);
     res.json(newData);
   } catch (error) {

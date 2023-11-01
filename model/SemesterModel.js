@@ -7,7 +7,7 @@ class Semesters extends Model {}
 Semesters.init(
   {
     semester_id: {
-      type: DataTypes.STRING(8),
+      type: DataTypes.INTEGER,
       primaryKey: true,
     },
     semester_name: {

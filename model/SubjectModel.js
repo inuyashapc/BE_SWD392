@@ -7,6 +7,10 @@ class Subject extends Model {}
 Subject.init(
   {
     subject_id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+    },
+    subject_code: {
       type: DataTypes.STRING(20),
       primaryKey: true,
     },
@@ -17,7 +21,7 @@ Subject.init(
       type: DataTypes.STRING(500),
     },
     manager_id: {
-      type: DataTypes.STRING(8),
+      type: DataTypes.INTEGER,
       references: {
         model: User,
         key: "user_id",

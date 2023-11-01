@@ -8,21 +8,19 @@ class Milestone extends Model {}
 Milestone.init(
   {
     milestone_id: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.INTEGER,
       primaryKey: true,
     },
     project_id: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.INTEGER,
       primaryKey: true,
       references: {
         model: Project,
         key: "project_id",
-        onUpdate: "RESTRICT",
-        onDelete: "RESTRICT",
       },
     },
     class_id: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.INTEGER,
       primaryKey: true,
       references: {
         model: Class,

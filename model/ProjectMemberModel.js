@@ -8,7 +8,7 @@ class ProjectMember extends Model {}
 ProjectMember.init(
   {
     project_id: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.INTEGER,
       primaryKey: true,
       references: {
         model: Project,
@@ -16,7 +16,7 @@ ProjectMember.init(
       },
     },
     student_id: {
-      type: DataTypes.STRING(8),
+      type: DataTypes.INTEGER,
       primaryKey: true,
       references: {
         model: User,

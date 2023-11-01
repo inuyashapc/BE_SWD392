@@ -7,14 +7,14 @@ class Project extends Model {}
 Project.init(
   {
     project_id: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.INTEGER,
       primaryKey: true,
     },
     class_id: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.INTEGER,
     },
     team_leader_id: {
-      type: DataTypes.STRING(8),
+      type: DataTypes.INTEGER,
       references: {
         model: User,
         key: "user_id",

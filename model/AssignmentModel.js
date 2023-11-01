@@ -12,7 +12,7 @@ Assignment.init(
       autoIncrement: true,
     },
     subject_id: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.INTEGER,
       references: {
         model: Subject,
         key: "subject_id",
