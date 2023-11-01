@@ -43,12 +43,13 @@ Class.init(
   },
   {
     sequelize,
-    modelName: "class", 
-    tableName: 'class', 
-    timestamps: true, 
-    createdAt: "created_at", 
-    updatedAt: "updated_at", 
+    modelName: "class",
+    tableName: "class",
+    timestamps: true,
+    createdAt: "created_at",
+    updatedAt: "updated_at",
   }
 );
-
+Class.belongsTo(Subject, { foreignKey: "subject_id", as: "Subject" });
+Class.belongsTo(User, { foreignKey: "teacher_id", as: "Teacher" });
 export default Class;
