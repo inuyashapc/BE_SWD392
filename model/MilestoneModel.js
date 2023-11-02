@@ -39,6 +39,12 @@ Milestone.init(
     milestone_description: {
       type: DataTypes.STRING(200),
     },
+    start_date: {
+      type: DataTypes.DATE,
+    },
+    end_date: {
+      type: DataTypes.DATE,
+    },
     created_at: {
       type: DataTypes.DATE,
     },
@@ -55,5 +61,6 @@ Milestone.init(
     updatedAt: "updated_at",
   }
 );
-
+Milestone.belongsTo(Project, { foreignKey: "project_id", as: "Project" });
+Milestone.belongsTo(Class, { foreignKey: "class_id", as: "Class" });
 export default Milestone;

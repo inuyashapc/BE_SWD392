@@ -8,4 +8,42 @@ const getAllMilestone = async (req, res) => {
     res.json("not found");
   }
 };
-export default { getAllMilestone };
+
+const getDetailMilestone = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const result = await milestoneRepository.getDetailMilestone(id);
+    res.json(result);
+  } catch (error) {
+    res.json("not found");
+  }
+};
+
+const createMilestone = async (req, res) => {
+  const {
+    project_id,
+    class_id,
+    milestone_name,
+    milestone_type,
+    milestone_status,
+    milestone_description,
+    start_date,
+    end_date,
+  } = req.body;
+  try {
+    const result = await milestoneRepository.createMilestone({
+      project_id,
+      class_id,
+      milestone_name,
+      milestone_type,
+      milestone_status,
+      milestone_description,
+      start_date,
+      end_date,
+    });
+    res.json(result);
+  } catch (error) {
+    console.log("🚀 ========= error:", error);
+  }
+};
+export default { getAllMilestone, getDetailMilestone, createMilestone };

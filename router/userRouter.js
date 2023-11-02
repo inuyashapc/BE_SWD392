@@ -1,11 +1,44 @@
-import express from "express";
+import * as express from "express";
+import { body } from "express-validator";
 import { userController } from "../controller/indexController.js";
 
-const router = express.Router();
 
-router.post("/register", userController.userRegister);
+const userRouter = express.Router();
 
-router.get("/teachers", userController.getAllTeacher);
-router.get("/", userController.getAllUser);
+userRouter.post(
+  "/register",
+  body("full_name").notEmpty().withMessage("Họ Tên không được trống"),
+  body("email")
+    .notEmpty()
+    .withMessage("Email không được trống")
+    .isString()
+    .trim()
+    .withMessage("Email phải đúng định dạng"),
+  body("password")
+    .notEmpty()
+    .withMessage("Mật khẩu không được trống")
+    .isLength({ min: 8 })
+    .withMessage("Mật khẩu phải lớn hơn 8 kí tự"),
+  userController.register
+);
 
-export default router;
+userRouter.get("/teachers", userController.getAllTeacher);
+userRouter.get("/", userController.getAllUser);
+
+userRouter.post(
+  "/login",
+  body("email")
+    .notEmpty()
+    .withMessage("Email không được trống")
+    .isString()
+    .trim()
+    .withMessage("Email phải đúng định dạng"),
+  body("password")
+    .notEmpty()
+    .withMessage("Mật khẩu không được trống")
+    .isLength({ min: 8 })
+    .withMessage("Mật khẩu phải lớn hơn 8 kí tự"),
+  userController.login
+);
+
+export default userRouter;

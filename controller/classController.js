@@ -24,4 +24,15 @@ const getAllClass = async (req, res) => {
     res.json("not found");
   }
 };
-export default { createNewClass, getAllClass };
+
+const getClassDetail = async (req, res) => {
+  const { id } = req.params;
+  console.log("🚀 ========= id:", id);
+  try {
+    const result = await classRepository.getClassDetail(id);
+    res.json(result);
+  } catch (error) {
+    res.json("not found");
+  }
+};
+export default { createNewClass, getAllClass, getClassDetail };
