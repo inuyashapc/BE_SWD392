@@ -35,4 +35,33 @@ const getClassDetail = async (req, res) => {
     res.json("not found");
   }
 };
-export default { createNewClass, getAllClass, getClassDetail };
+
+const updateClass = async (req, res) => {
+  const { id } = req.params;
+  const updateData = req.body;
+  console.log("🚀 ========= updateData:", updateData);
+  console.log("🚀 ========= id:", id);
+  try {
+    const result = await classRepository.updateClass(id, updateData);
+    res.json(result);
+  } catch (error) {
+    res.json(error.toString());
+  }
+};
+
+const changeStatus = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const result = await classRepository.changeStatus(id);
+    res.json(result);
+  } catch (error) {
+    res.json(error.toString());
+  }
+};
+export default {
+  createNewClass,
+  getAllClass,
+  getClassDetail,
+  updateClass,
+  changeStatus,
+};
