@@ -33,6 +33,18 @@ const getAllTeacher = async () => {
     throw new Error("Không có teacher" + error.message);
   }
 };
+const getAllManager = async () => {
+  try {
+    const allUsers = await User.findAll({
+      where: {
+        role_id: 2,
+      },
+    });
+    return allUsers;
+  } catch (error) {
+    throw new Error("Không có teacher" + error.message);
+  }
+};
 const login = async({ email, password }) => {
   const userExisting = await User.findOne({ where: { email: email } });
   if (userExisting) {
@@ -88,6 +100,7 @@ const register = async({ full_name, phone_number, email, password })=> {
 export default {
   getAllUser,
   getAllTeacher,
+  getAllManager,
   register,
   login
 };

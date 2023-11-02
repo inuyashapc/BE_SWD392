@@ -9,6 +9,7 @@ Subject.init(
     subject_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
+      unique:true
     },
     subject_code: {
       type: DataTypes.STRING(20),
