@@ -89,9 +89,29 @@ const updatedSubject = async (subjectData) => {
       throw new Error("Không tìm thấy môn học để cập nhật.");
     }
     await existingSubject.update(subjectData);
-    console.log("🚀 ~ file: subjectRepository.js:92 ~ updatedSubject ~ existingSubject:", existingSubject)
+    console.log(
+      "🚀 ~ file: subjectRepository.js:92 ~ updatedSubject ~ existingSubject:",
+      existingSubject
+    );
 
     return existingSubject;
+  } catch (error) {
+    throw new Error("Không thể tạo: " + error.message);
+  }
+};
+const getAllSubjects = async () => {
+  try {
+    const allSubject = await Subject.findAll({
+      include: [
+        {
+          model: User,
+          as: "Manager",
+          attributes: ["user_id", "full_name", "email"],
+        },
+      ],
+    });
+    console.log("🚀 ========= allSubject:", allSubject);
+    return allSubject;
   } catch (error) {
     throw new Error("Không thể tạo: " + error.message);
   }
@@ -103,4 +123,5 @@ export default {
   changeActiveSubject,
   softDeleteSubject,
   updatedSubject,
+  getAllSubjects,
 };

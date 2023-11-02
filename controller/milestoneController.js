@@ -46,4 +46,20 @@ const createMilestone = async (req, res) => {
     console.log("🚀 ========= error:", error);
   }
 };
-export default { getAllMilestone, getDetailMilestone, createMilestone };
+
+const getAllMilestoneByProject = async (req, res) => {
+  const { id } = req.params;
+  console.log("🚀 ========= id:", id);
+  try {
+    const result = await milestoneRepository.getAllMilestoneByProject(id);
+    res.json(result);
+  } catch (error) {
+    res.json("not found");
+  }
+};
+export default {
+  getAllMilestone,
+  getDetailMilestone,
+  createMilestone,
+  getAllMilestoneByProject,
+};

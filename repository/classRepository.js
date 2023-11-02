@@ -65,8 +65,42 @@ const getClassDetail = async (id) => {
   }
 };
 
+const updateClass = async (id, updatedData) => {
+  console.log("🚀 ========= updatedData:", updatedData);
+  const classDetail = await Class.findOne({
+    where: {
+      class_id: id,
+    },
+  });
+
+  // Nếu không tìm thấy classDetail, ném một lỗi
+  if (!classDetail) {
+    throw new Error(`classDetail with id ${id} not found.`);
+  }
+
+  // Cập nhật các trường của classDetail với dữ liệu mới
+  await classDetail.update(updatedData);
+
+  // Trả về classDetail đã được cập nhật
+  return classDetail;
+};
+
+const changeStatus = async (id) => {
+  const classDetail = await Class.findOne({
+    where: {
+      class_id: id,
+    },
+  });
+  if (!classDetail) {
+    throw new Error(`classDetail with id ${id} not found.`);
+  }
+  await classDetail.update({ class_status: !classDetail.class_status });
+  return classDetail;
+};
 export default {
   createNewClass,
   getAllClass,
   getClassDetail,
+  updateClass,
+  changeStatus,
 };
