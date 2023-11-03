@@ -2,13 +2,14 @@ import { subjectRepository } from "../repository/indexRepository.js";
 
 const createNewSubject = async (req, res) => {
   try {
-    const { subject_code, subject_name, subject_description, manager_id } =
+    const { subject_code, subject_name, subject_description, manager_id,isActived = 1 } =
       req.body;
     const newSubjectData = {
       subject_code,
       subject_name,
       subject_description,
       manager_id,
+      isActived
     };
     const newSubject = await subjectRepository.createNewSubject(newSubjectData);
     res.json(newSubject);
@@ -18,11 +19,8 @@ const createNewSubject = async (req, res) => {
 };
 const getAllSubject = async (req, res) => {
   try {
-    const { sortColumn, sortOrder } = req.query;
-    const newSubject = await subjectRepository.getAllSubject(
-      sortColumn,
-      sortOrder
-    );
+    const { sortColumn = 'subject_id', sortOrder = 'asc' } = req.query;
+    const newSubject = await subjectRepository.getAllSubject(sortColumn, sortOrder);
     res.json(newSubject);
   } catch (error) {
     res.json("not found");

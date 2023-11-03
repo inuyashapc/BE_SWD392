@@ -24,7 +24,7 @@ userRouter.post(
 
 userRouter.get("/teachers", userController.getAllTeacher);
 userRouter.get("/", userController.getAllUser);
-
+userRouter.get("/managers", userController.getAllManager);
 userRouter.post(
   "/login",
   body("email")

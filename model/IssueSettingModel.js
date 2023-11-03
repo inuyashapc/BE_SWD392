@@ -1,8 +1,7 @@
 import { DataTypes, Model } from "sequelize";
 import sequelize from "../config/configDatabase.js";
-import Project from "./ProjectModel.js";
-import Class from "./ClassModel.js";
-import Subject from "./SubjectModel.js";
+import {Class, Project, Subject} from "./indexModel.js";
+
 
 class IssueSetting extends Model {}
 
@@ -15,6 +14,7 @@ IssueSetting.init(
     },
     project_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: Project,
         key: "project_id",
@@ -22,6 +22,7 @@ IssueSetting.init(
     },
     class_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: Class,
         key: "class_id",
@@ -29,10 +30,23 @@ IssueSetting.init(
     },
     subject_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: Subject,
         key: "subject_id",
       },
+    },
+    work_process: {
+      allowNull: false,
+      type: DataTypes.FLOAT,
+    },
+    gitlab_sync: {
+      type: DataTypes.STRING(200),
+      allowNull: false,
+    },
+    is_actived: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
     },
     created_at: {
       type: DataTypes.DATE,
@@ -50,5 +64,7 @@ IssueSetting.init(
     updatedAt: "updated_at",
   }
 );
-
+IssueSetting.belongsTo(Project, { foreignKey: 'project_id', as: 'Project' });
+IssueSetting.belongsTo(Class, { foreignKey: 'class_id', as: 'Class' });
+IssueSetting.belongsTo(Subject, { foreignKey: 'subject_id', as: 'Subject' });
 export default IssueSetting;

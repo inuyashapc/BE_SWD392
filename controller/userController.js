@@ -20,6 +20,14 @@ const getAllTeacher = async (req, res) => {
     res.json("not found");
   }
 };
+const getAllManager = async (req, res) => {
+  try {
+    const getAllManager = await userRepository.getAllManager();
+    res.json(getAllManager);
+  } catch (error) {
+    res.json("not found");
+  }
+};
 
 const register = async (req, res) => {
   const errors = validationResult(req);
@@ -69,4 +77,4 @@ const login = async (req, res) => {
   }
 };
 
-export default { register, getAllUser, getAllTeacher, login };
+export default { register, getAllUser, getAllTeacher, login ,getAllManager};

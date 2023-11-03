@@ -9,6 +9,7 @@ Subject.init(
     subject_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
+      unique:true
     },
     subject_code: {
       type: DataTypes.STRING(20),
@@ -26,6 +27,9 @@ Subject.init(
         model: User,
         key: "user_id",
       },
+    },
+    gitlab_sync:{
+      type: DataTypes.STRING(200),
     },
     created_at: {
       type: DataTypes.DATE,
