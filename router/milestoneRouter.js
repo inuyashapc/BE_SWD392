@@ -7,5 +7,6 @@ router.get("/", milestoneController.getAllMilestone);
 router.get("/class/:id", milestoneController.getAllMilestoneByProject);
 router.get("/:id", milestoneController.getDetailMilestone);
 router.post("/create", milestoneController.createMilestone);
+router.put("/:id", milestoneController.updateMilestone);
 
 export default router;
