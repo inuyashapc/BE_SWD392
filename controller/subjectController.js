@@ -19,8 +19,8 @@ const createNewSubject = async (req, res) => {
 };
 const getAllSubject = async (req, res) => {
   try {
-    const {sortColumn,sortOrder} = req.query;
-    const newSubject = await subjectRepository.getAllSubject(sortColumn,sortOrder);
+    const { sortColumn = 'subject_id', sortOrder = 'asc' } = req.query;
+    const newSubject = await subjectRepository.getAllSubject(sortColumn, sortOrder);
     res.json(newSubject);
   } catch (error) {
     res.json("not found");

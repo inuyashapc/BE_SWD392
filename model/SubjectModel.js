@@ -28,6 +28,9 @@ Subject.init(
         key: "user_id",
       },
     },
+    gitlab_sync:{
+      type: DataTypes.STRING(200),
+    },
     created_at: {
       type: DataTypes.DATE,
     },

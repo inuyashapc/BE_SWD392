@@ -4,10 +4,10 @@ import classRepository from "./classRepository.js";
 import subjectRepository from "./subjectRepository.js";
 import assignmentRepository from "./assignmentRepository.js";
 import issueRepository from "./issueRepository.js";
-
 import milestoneRepository from "./milestoneRepository.js";
 import semesterRepository from "./semesterRepository.js";
-
+import issueSettingRepository from "./issueSettingRepository.js";
+import projectRepository from "./projectRepository.js";
 export {
   userRepository,
   subRepository,
@@ -17,4 +17,6 @@ export {
   milestoneRepository,
   semesterRepository,
   issueRepository,
+  issueSettingRepository,
+  projectRepository
 };

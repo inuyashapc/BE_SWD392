@@ -6,7 +6,8 @@ import assignmentRouter from "./assignmentRouter.js";
 import issueRouter from "./issueRouter.js";
 import milestoneRouter from "./milestoneRouter.js";
 import semesterRouter from "./semesterRoutes.js";
-
+import issueSettingRouter from "./issueSettingRouter.js";
+import projectRouter from "./projectRouter.js";
 export {
   subRouter,
   userRouter,
@@ -16,4 +17,6 @@ export {
   milestoneRouter,
   semesterRouter,
   issueRouter,
+  issueSettingRouter,
+  projectRouter,
 };

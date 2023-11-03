@@ -1,6 +1,6 @@
 import { DataTypes, Model } from "sequelize";
 import sequelize from "../config/configDatabase.js";
-import IssueSetting from "./IssueSettingModel.js";
+import { IssueSetting } from "./indexModel.js";
 
 class IssueStatus extends Model {}
 
@@ -40,5 +40,8 @@ IssueStatus.init(
     updatedAt: "updated_at",
   }
 );
-
+IssueStatus.belongsTo(IssueSetting, {
+  foreignKey: "setting_id",
+  as: "IssueSetting",
+});
 export default IssueStatus;
