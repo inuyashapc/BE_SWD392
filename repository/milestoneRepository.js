@@ -97,9 +97,30 @@ const getAllMilestoneByProject = async (id) => {
     throw new Error(error.message);
   }
 };
+
+const updateMilestone = async ({ id, data }) => {
+  console.log("🚀 ========= data1234:", data);
+  try {
+    const existMilestone = await Milestone.findOne({
+      where: {
+        milestone_id: id,
+      },
+    });
+    console.log("🚀 ========= existMilestone:", existMilestone);
+    if (!existMilestone) {
+      throw new Error("Không tồn tại milestone");
+    }
+    const result = await existMilestone.update(data);
+    console.log("🚀 ========= result1234:", result);
+    return result;
+  } catch (error) {
+    throw new Error(error.toString());
+  }
+};
 export default {
   getAllMilestone,
   getDetailMilestone,
   createMilestone,
   getAllMilestoneByProject,
+  updateMilestone,
 };
