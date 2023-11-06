@@ -70,10 +70,21 @@ const updateMilestone = async (req, res) => {
     res.json(error);
   }
 };
+
+const deletedMilestone = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const result = await milestoneRepository.deleteMilestone(id);
+    res.json(result);
+  } catch (error) {
+    res.json(error);
+  }
+};
 export default {
   getAllMilestone,
   getDetailMilestone,
   createMilestone,
   getAllMilestoneByProject,
   updateMilestone,
+  deletedMilestone,
 };

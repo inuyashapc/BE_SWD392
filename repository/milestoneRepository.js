@@ -117,10 +117,35 @@ const updateMilestone = async ({ id, data }) => {
     throw new Error(error.toString());
   }
 };
+
+const closeMilestone = async () => {
+  try {
+    const milestone = Milestone.findOne();
+  } catch (error) {}
+};
+
+const deleteMilestone = async (id) => {
+  try {
+    const deletedRows = await Milestone.destroy({
+      where: {
+        milestone_id: id,
+      },
+    });
+
+    if (deletedRows > 0) {
+      console.log("Milestone deleted successfully");
+    } else {
+      console.log("Milestone not found.");
+    }
+  } catch (error) {
+    console.error("Error deleting milestone:", error);
+  }
+};
 export default {
   getAllMilestone,
   getDetailMilestone,
   createMilestone,
   getAllMilestoneByProject,
   updateMilestone,
+  deleteMilestone,
 };
