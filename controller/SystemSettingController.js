@@ -1,4 +1,4 @@
-import { subRepository } from "../repository/indexRepository.js";
+import { subRepository } from "../repository/IndexRepository.js";
 
 const createNewSemester = async (req, res) => {
   try {
@@ -24,6 +24,14 @@ const createNewUserRole = async (req, res) => {
     };
     const newSemester = await subRepository.createNewUserRole(newUserRoleData);
     res.json(newSemester);
+  } catch (error) {
+    res.json("not found");
+  }
+};
+const getAllSemester = async (req, res) => {
+  try {
+    const result = await semesterRepository.getAllSemester();
+    res.json(result);
   } catch (error) {
     res.json("not found");
   }

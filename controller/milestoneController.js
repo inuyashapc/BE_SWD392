@@ -1,4 +1,4 @@
-import { milestoneRepository } from "../repository/indexRepository.js";
+import { milestoneRepository } from "../repository/IndexRepository.js";
 
 const getAllMilestone = async (req, res) => {
   try {

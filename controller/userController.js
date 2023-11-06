@@ -1,6 +1,6 @@
-import { userRepository } from "../repository/indexRepository.js";
+import { userRepository } from "../repository/IndexRepository.js";
 import { body, validationResult } from "express-validator";
-import sendEmail from "../util/email.js";
+import sendEmail from "../util/Email.js";
 import jwt from "jsonwebtoken";
 
 const getAllUser = async (req, res) => {

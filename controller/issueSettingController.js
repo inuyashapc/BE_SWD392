@@ -1,4 +1,4 @@
-import { issueSettingRepository } from "../repository/indexRepository.js";
+import { issueSettingRepository } from "../repository/IndexRepository.js";
 
 const createNewIssueSetting = async (req, res) => {
   try {

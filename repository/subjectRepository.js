@@ -1,4 +1,4 @@
-import { User, Subject } from "../model/indexModel.js";
+import { User, Subject } from "../model/IndexModel.js";
 
 const createNewSubject = async (newSubjectData) => {
   try {

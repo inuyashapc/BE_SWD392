@@ -1,4 +1,4 @@
-import { classRepository } from "../repository/indexRepository.js";
+import { classRepository } from "../repository/IndexRepository.js";
 
 const createNewClass = async (req, res) => {
   try {

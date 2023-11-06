@@ -1,13 +1,13 @@
-import subController from "./subController.js";
-import userController from "./userController.js";
-import classController from "./classController.js";
-import subjectController from "./subjectController.js";
-import assignmentController from "./assignmentController.js";
-import issueController from "./issueController.js";
-import milestoneController from "./milestoneController.js";
-import semesterController from "./semesterController.js";
-import issueSettingController from "./issueSettingController.js";
-import projectController from "./projectController.js";
+import subController from "./SystemSettingController.js";
+import userController from "./UserController.js";
+import classController from "./ClassController.js";
+import subjectController from "./SubjectController.js";
+import assignmentController from "./AssignmentController.js";
+import issueController from "./IssueController.js";
+import milestoneController from "./MilestoneController.js";
+import systemSettingController from "./SystemSettingController.js";
+import issueSettingController from "./IssueSettingController.js";
+import projectController from "./ProjectController.js";
 export {
   subController,
   userController,
@@ -16,7 +16,7 @@ export {
   assignmentController,
   milestoneController,
   issueController,
-  semesterController,
+  systemSettingController,
   issueSettingController,
   projectController,
 };

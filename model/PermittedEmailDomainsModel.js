@@ -1,6 +1,6 @@
 // models/permittedEmailDomains.js
 import { DataTypes, Model } from 'sequelize';
-import sequelize from '../config/configDatabase.js';
+import sequelize from '../constant/ConfigDatabase.js';
 
 class PermittedEmailDomains extends Model {}
 

@@ -1,5 +1,5 @@
 import { DataTypes, Model } from "sequelize";
-import sequelize from "../config/configDatabase.js";
+import sequelize from "../constant/ConfigDatabase.js";
 import Subject from "./SubjectModel.js";
 
 class Assignment extends Model {}

@@ -1,5 +1,5 @@
 import { DataTypes, Model } from "sequelize";
-import sequelize from "../config/configDatabase.js";
+import sequelize from "../constant/ConfigDatabase.js";
 import User from "./UserModel.js";
 
 class Subject extends Model {}
@@ -13,7 +13,6 @@ Subject.init(
     },
     subject_code: {
       type: DataTypes.STRING(20),
-      primaryKey: true,
     },
     subject_name: {
       type: DataTypes.STRING(200),
