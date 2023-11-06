@@ -58,10 +58,23 @@ const changeStatus = async (req, res) => {
     res.json(error.toString());
   }
 };
+
+const searchClassByName = async (req, res) => {
+  const { search } = req.body;
+  console.log("🚀 ========= req.body:", req.body);
+  console.log("🚀 ========= search:", search);
+  try {
+    const result = await classRepository.searchClassByName(search);
+    res.json(result);
+  } catch (error) {
+    res.json(error.toString());
+  }
+};
 export default {
   createNewClass,
   getAllClass,
   getClassDetail,
   updateClass,
   changeStatus,
+  searchClassByName,
 };
