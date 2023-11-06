@@ -1,9 +1,9 @@
 // models/class.js
 import { DataTypes, Model } from "sequelize";
-import sequelize from "../config/configDatabase.js";
+import sequelize from "../constant/ConfigDatabase.js";
 import User from "./UserModel.js";
 import Subject from "./SubjectModel.js";
-import { Semester } from "./indexModel.js";
+import { Semester } from "./IndexModel.js";
 class Class extends Model {}
 
 Class.init(

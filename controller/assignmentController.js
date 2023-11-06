@@ -1,4 +1,4 @@
-import { assignmentRepository } from "../repository/indexRepository.js";
+import { assignmentRepository } from "../repository/IndexRepository.js";
 
 const createNewAssignment = async (req, res) => {
   try {

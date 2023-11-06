@@ -1,4 +1,4 @@
-import { Project } from "../model/indexModel.js";
+import { Project } from "../model/IndexModel.js";
 
 const getAllProject = async () => {
   try {

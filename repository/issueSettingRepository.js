@@ -1,4 +1,4 @@
-import { Class, IssueSetting, IssueStatus, IssueType, Project, Subject } from "../model/indexModel.js";
+import { Class, IssueSetting, IssueStatus, IssueType, Project, Subject } from "../model/IndexModel.js";
 
 const createNewIssueSetting = async (data) => {
   try {

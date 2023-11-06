@@ -1,4 +1,4 @@
-import { subjectRepository } from "../repository/indexRepository.js";
+import { subjectRepository } from "../repository/IndexRepository.js";
 
 const createNewSubject = async (req, res) => {
   try {

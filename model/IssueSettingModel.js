@@ -1,8 +1,6 @@
 import { DataTypes, Model } from "sequelize";
-import sequelize from "../config/configDatabase.js";
-import {Class, Project, Subject} from "./indexModel.js";
-
-
+import { Class, Project, Subject } from "./IndexModel.js";
+import sequelize from "../constant/ConfigDatabase.js";
 class IssueSetting extends Model {}
 
 IssueSetting.init(
@@ -64,7 +62,7 @@ IssueSetting.init(
     updatedAt: "updated_at",
   }
 );
-IssueSetting.belongsTo(Project, { foreignKey: 'project_id', as: 'Project' });
-IssueSetting.belongsTo(Class, { foreignKey: 'class_id', as: 'Class' });
-IssueSetting.belongsTo(Subject, { foreignKey: 'subject_id', as: 'Subject' });
+IssueSetting.belongsTo(Project, { foreignKey: "project_id", as: "Project" });
+IssueSetting.belongsTo(Class, { foreignKey: "class_id", as: "Class" });
+IssueSetting.belongsTo(Subject, { foreignKey: "subject_id", as: "Subject" });
 export default IssueSetting;

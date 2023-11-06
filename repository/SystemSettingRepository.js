@@ -1,4 +1,4 @@
-import { Semester, UserRole } from "../model/indexModel.js";
+import { Semester, UserRole } from "../model/IndexModel.js";
 
 const createNewSemester = async (semesterData) => {
   try {
@@ -8,6 +8,16 @@ const createNewSemester = async (semesterData) => {
     throw new Error("Không thể tạo: " + error.message);
   }
 };
+
+const getAllSemester = async () => {
+  try {
+    const result = await Semester.findAll();
+    return result;
+  } catch (error) {
+    throw new Error("Không thể tạo: " + error.message);
+  }
+};
+
 const createNewUserRole = async (userRoleData) => {
   try {
     const newUserRole = await UserRole.create(userRoleData);
@@ -16,4 +26,4 @@ const createNewUserRole = async (userRoleData) => {
     throw new Error("Không thể tạo: " + error.message);
   }
 };
-export default { createNewSemester, createNewUserRole };
+export default { createNewSemester, createNewUserRole,getAllSemester };

@@ -1,6 +1,6 @@
 import { DataTypes, Model } from "sequelize";
-import sequelize from "../config/configDatabase.js";
-import { IssueSetting } from "./indexModel.js";
+import sequelize from "../constant/ConfigDatabase.js";
+import { IssueSetting } from "./IndexModel.js";
 
 class IssueStatus extends Model {}
 

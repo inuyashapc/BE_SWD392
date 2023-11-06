@@ -1,4 +1,4 @@
-import { Class, Milestone, Project } from "../model/indexModel.js";
+import { Class, Milestone, Project } from "../model/IndexModel.js";
 
 const getAllMilestone = async () => {
   try {

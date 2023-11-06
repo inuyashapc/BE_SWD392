@@ -10,7 +10,7 @@ import {
   subjectRouter,
   assignmentRouter,
   milestoneRouter,
-  semesterRouter,
+  systemSettingRouter,
   issueRouter,
   issueSettingRouter,
   projectRouter,
@@ -30,7 +30,7 @@ app.use("/subjects", subjectRouter);
 app.use("/assignments", assignmentRouter);
 app.use("/issues", issueRouter);
 app.use("/milestones", milestoneRouter);
-app.use("/semesters", semesterRouter);
+app.use("/systemSetting", systemSettingRouter);
 app.use("/issueSettings", issueSettingRouter)
 app.use('/projects',projectRouter)
 ////////////////////////////////

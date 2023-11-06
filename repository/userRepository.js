@@ -1,5 +1,5 @@
-import DefaultImage from "../resource/DefaultImage.js";
-import { User } from "../model/indexModel.js";
+import DefaultImage from "../constant/DefaultImage.js";
+import { User } from "../model/IndexModel.js";
 import bcrypt from "bcrypt"; 
 import jwt from 'jsonwebtoken';
 

@@ -1,4 +1,4 @@
-import { projectRepository } from "../repository/indexRepository.js";
+import { projectRepository } from "../repository/IndexRepository.js";
 
 const getAllProject = async (req, res) => {
   try {

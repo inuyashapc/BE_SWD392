@@ -1,4 +1,4 @@
-import { Assignment } from "../model/indexModel.js";
+import { Assignment } from "../model/IndexModel.js";
 
 const createNewAssignment = async (newAssignmentData) => {
   try {
