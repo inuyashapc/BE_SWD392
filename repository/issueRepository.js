@@ -20,7 +20,7 @@ const getAllIssue = async () => {
 
 const getIssueById = async (issueId) => {
   try {
-      const issue = await Issue.findByPk(issueId);
+      const issue = await Issue.findOne(issueId);
       if (!issue) {
           throw new Error(`Issue with ID ${issueId} not found`);
       }
@@ -30,7 +30,8 @@ const getIssueById = async (issueId) => {
   }
 };
 
-const batchUpdate = async (updates) => {
+
+const oldbatchUpdate = async (updates) => {
   try {
     const updatedIssues = await Promise.all(updates.map(async (update) => {
       const { issueId, updatedData } = update;
@@ -50,6 +51,33 @@ const batchUpdate = async (updates) => {
     throw new Error("Unable to batch update issues: " + error.message);
   }
 };
+
+const batchUpdate = async (updates) => {
+  try {
+    const updatedItems = await Promise.all(updates.map(async (update) => {
+      const { itemId, updatedData } = update;
+      const item = await Item.findByPk(itemId);
+
+      if (!item) {
+        throw new Error(`Item with ID ${itemId} not found`);
+      }
+
+      await item.update(updatedData);
+
+      console.log(
+        "🚀 ~ file: itemRepository.js ~ batchUpdate ~ item:",
+        item
+      );
+
+      return item;
+    }));
+
+    return updatedItems;
+  } catch (error) {
+    throw new Error("Unable to batch update items: " + error.message);
+  }
+};
+
 
 export default {
   createNewIssue,

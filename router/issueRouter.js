@@ -6,6 +6,6 @@ const router = express.Router();
 router.post("/create", issueController.createNewIssue);
 router.get("/", issueController.getAllIssue);
 router.get("/:id", issueController.getIssueById);
-router.post("/batchUpdate", issueController.batchUpdate);
+router.post("/:id/update", issueController.batchUpdate);
 
 export default router;
