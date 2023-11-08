@@ -42,18 +42,19 @@ const getAllIssue = async (req, res) => {
 
 const getIssueById = async (req, res) => {
   try {
-    const issueId = req.params.issueId;
-    const issue = await issueRepository.getIssueById(issueId);
+      const issueId = req.params.issueId;
+      const issue = await issueRepository.getIssueById(issueId);
 
-    if (issue) {
-      res.json(issue);
-    } else {
-      res.status(404).json("Issue not found");
-    }
+      if (issue) {
+          res.json(issue);
+      } else {
+          res.status(404).json("Issue not found");
+      }
   } catch (error) {
-    res.status(500).json("Internal Server Error");
+      res.status(500).json("Internal Server Error");
   }
 };
+
 
 const batchUpdate = async (req, res) => {
   try {
