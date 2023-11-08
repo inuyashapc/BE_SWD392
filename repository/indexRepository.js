@@ -8,6 +8,7 @@ import milestoneRepository from "./MilestoneRepository.js";
 import systemSettingRepository from "./SystemSettingRepository.js";
 import issueSettingRepository from "./IssueSettingRepository.js";
 import projectRepository from "./ProjectRepository.js";
+import semesterRepository from "./semesterRepository.js";
 export {
   userRepository,
   subRepository,
@@ -18,5 +19,6 @@ export {
   systemSettingRepository,
   issueRepository,
   issueSettingRepository,
-  projectRepository
+  projectRepository,
+  semesterRepository,
 };

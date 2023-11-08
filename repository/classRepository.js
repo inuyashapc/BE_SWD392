@@ -1,4 +1,4 @@
-import { Class, Semester, Subject, User } from "../model/IndexModel.js";
+import { Class, Semester, Subject, User } from "../model/indexModel.js";
 import { Op } from "sequelize";
 const createNewClass = async (classData) => {
   try {
@@ -40,7 +40,9 @@ const getAllClass = async () => {
 const getClassDetail = async (id) => {
   try {
     const result = await Class.findOne({
-      class_id: id,
+      where: {
+        class_id: id,
+      },
       include: [
         {
           model: Subject,

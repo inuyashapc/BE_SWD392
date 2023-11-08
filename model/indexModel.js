@@ -14,5 +14,20 @@ import Milestone from "./MilestoneModel.js";
 import ProjectMember from "./ProjectMemberModel.js";
 import Project from "./ProjectModel.js";
 
-export { User, Semester, PermittedEmailDomain, UserRole, Class, Subject , 
-    Assignment ,ClassStudent,Issue,IssueSetting,IssueStatus,IssueType,Milestone,Project,ProjectMember};
+export {
+  User,
+  Semester,
+  PermittedEmailDomain,
+  UserRole,
+  Class,
+  Subject,
+  Assignment,
+  ClassStudent,
+  Issue,
+  IssueSetting,
+  IssueStatus,
+  IssueType,
+  Milestone,
+  Project,
+  ProjectMember,
+};

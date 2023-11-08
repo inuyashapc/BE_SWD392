@@ -8,7 +8,7 @@ import milestoneRouter from "./MilestoneRouter.js";
 import systemSettingRouter from "./SystemSettingRouter.js";
 import issueSettingRouter from "./IssueSettingRouter.js";
 import projectRouter from "./ProjectRouter.js";
-
+import semesterRouter from "./semesterRouter.js";
 
 export {
   subRouter,
@@ -21,4 +21,5 @@ export {
   issueRouter,
   issueSettingRouter,
   projectRouter,
+  semesterRouter,
 };

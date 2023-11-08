@@ -14,6 +14,7 @@ import {
   issueRouter,
   issueSettingRouter,
   projectRouter,
+  semesterRouter,
 } from "./router/indexRouter.js";
 const app = express();
 dotenv.config();
@@ -31,8 +32,10 @@ app.use("/assignments", assignmentRouter);
 app.use("/issues", issueRouter);
 app.use("/milestones", milestoneRouter);
 app.use("/systemSetting", systemSettingRouter);
-app.use("/issueSettings", issueSettingRouter)
-app.use('/projects',projectRouter)
+app.use("/issueSettings", issueSettingRouter);
+app.use("/projects", projectRouter);
+app.use("/semesters", semesterRouter);
+
 ////////////////////////////////
 app.use("/", subRouter);
 const port = process.env.PORT || 3000;

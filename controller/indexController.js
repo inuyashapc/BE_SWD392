@@ -8,6 +8,7 @@ import milestoneController from "./MilestoneController.js";
 import systemSettingController from "./SystemSettingController.js";
 import issueSettingController from "./IssueSettingController.js";
 import projectController from "./ProjectController.js";
+import semesterController from "./semesterController.js";
 export {
   subController,
   userController,
@@ -19,4 +20,5 @@ export {
   systemSettingController,
   issueSettingController,
   projectController,
+  semesterController,
 };
